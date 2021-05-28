@@ -33,7 +33,11 @@ namespace Vsqx2CCS
             this.tbLogs = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lvVSQX = new System.Windows.Forms.ListView();
+            this.FileName = new System.Windows.Forms.ColumnHeader();
+            this.FileType = new System.Windows.Forms.ColumnHeader();
+            this.FilePath = new System.Windows.Forms.ColumnHeader();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.pbConvert = new System.Windows.Forms.ProgressBar();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnSelDir = new System.Windows.Forms.Button();
@@ -43,7 +47,7 @@ namespace Vsqx2CCS
             this.addVSQXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -81,12 +85,36 @@ namespace Vsqx2CCS
             // 
             // lvVSQX
             // 
+            this.lvVSQX.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.FileName,
+            this.FileType,
+            this.FilePath});
+            this.lvVSQX.GridLines = true;
+            this.lvVSQX.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvVSQX.HideSelection = false;
             this.lvVSQX.Location = new System.Drawing.Point(7, 22);
+            this.lvVSQX.MultiSelect = false;
             this.lvVSQX.Name = "lvVSQX";
+            this.lvVSQX.ShowGroups = false;
             this.lvVSQX.Size = new System.Drawing.Size(607, 164);
             this.lvVSQX.TabIndex = 0;
             this.lvVSQX.UseCompatibleStateImageBehavior = false;
+            this.lvVSQX.View = System.Windows.Forms.View.Details;
+            this.lvVSQX.SelectedIndexChanged += new System.EventHandler(this.lvVSQX_SelectedIndexChanged);
+            // 
+            // FileName
+            // 
+            this.FileName.Text = "File Name";
+            this.FileName.Width = 150;
+            // 
+            // FileType
+            // 
+            this.FileType.Text = "Type";
+            // 
+            // FilePath
+            // 
+            this.FilePath.Text = "Path";
+            this.FilePath.Width = 500;
             // 
             // groupBox3
             // 
@@ -101,6 +129,16 @@ namespace Vsqx2CCS
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Destination Directory";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(539, 64);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pbConvert
             // 
@@ -160,6 +198,7 @@ namespace Vsqx2CCS
             this.addVSQXToolStripMenuItem.Name = "addVSQXToolStripMenuItem";
             this.addVSQXToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.addVSQXToolStripMenuItem.Text = "Add VSQX";
+            this.addVSQXToolStripMenuItem.Click += new System.EventHandler(this.addVSQXToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -167,15 +206,9 @@ namespace Vsqx2CCS
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
-            // button1
+            // openFileDialog1
             // 
-            this.button1.Location = new System.Drawing.Point(539, 64);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -218,6 +251,10 @@ namespace Vsqx2CCS
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ColumnHeader FileName;
+        private System.Windows.Forms.ColumnHeader FileType;
+        private System.Windows.Forms.ColumnHeader FilePath;
     }
 }
 

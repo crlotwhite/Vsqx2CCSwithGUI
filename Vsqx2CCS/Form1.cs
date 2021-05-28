@@ -581,5 +581,24 @@ namespace Vsqx2CCS
             logging("log test! " + count++);
         }
         private int count = 0;
+
+        private void addVSQXToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.AddExtension = true;
+            openFileDialog1.Filter = "Vocaloid3 Sequence (*.vsqx)|*.vsqx|All files (*.*)|*.*";
+            openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string[] row = { openFileDialog1.SafeFileName, "V3", openFileDialog1.FileName };
+                var listViewItem = new ListViewItem(row);
+                lvVSQX.Items.Add(listViewItem);
+            }
+        }
+
+        private void lvVSQX_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
