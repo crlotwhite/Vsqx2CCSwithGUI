@@ -37,7 +37,6 @@ namespace Vsqx2CCS
             this.FileType = new System.Windows.Forms.ColumnHeader();
             this.FilePath = new System.Windows.Forms.ColumnHeader();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.pbConvert = new System.Windows.Forms.ProgressBar();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnSelDir = new System.Windows.Forms.Button();
@@ -100,7 +99,7 @@ namespace Vsqx2CCS
             this.lvVSQX.TabIndex = 0;
             this.lvVSQX.UseCompatibleStateImageBehavior = false;
             this.lvVSQX.View = System.Windows.Forms.View.Details;
-            this.lvVSQX.SelectedIndexChanged += new System.EventHandler(this.lvVSQX_SelectedIndexChanged);
+            this.lvVSQX.DoubleClick += new System.EventHandler(this.lvVSQs_DoubleClick);
             // 
             // FileName
             // 
@@ -118,7 +117,6 @@ namespace Vsqx2CCS
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.pbConvert);
             this.groupBox3.Controls.Add(this.btnStart);
             this.groupBox3.Controls.Add(this.btnSelDir);
@@ -129,16 +127,6 @@ namespace Vsqx2CCS
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Destination Directory";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(539, 64);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pbConvert
             // 
@@ -155,6 +143,7 @@ namespace Vsqx2CCS
             this.btnStart.TabIndex = 2;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnSelDir
             // 
@@ -250,7 +239,6 @@ namespace Vsqx2CCS
         private System.Windows.Forms.ToolStripMenuItem addVSQXToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ColumnHeader FileName;
         private System.Windows.Forms.ColumnHeader FileType;
